@@ -13,7 +13,7 @@ class DbHome extends SQLite3{
 	}
 	
 	function changePsw($old, $new, $newCheck){
-		if(!strcmp($new, $newCheck)){
+		if(strcmp($new, $newCheck) == 0){
 			return false;
 		}
 		else{
@@ -85,7 +85,7 @@ class DbHome extends SQLite3{
 		$utente = $this->utente;
 		$result = $this -> query("SELECT * FROM utenti WHERE nome='$utente'");
 		$row = $result -> fetchArray();
-		if(strcmp($row["password"], md5($password))){
+		if(strcmp($row["password"], md5($password)) == 0){
 			$this->logged = true;
 			return true;
 		}
