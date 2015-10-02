@@ -4,7 +4,7 @@ if(!isset($_COOKIE['gestione-casa'])){?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Gestionale Spese Casa</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -20,7 +20,7 @@ if(!isset($_COOKIE['gestione-casa'])){?>
   }?>
   <form role="form" action="login.php" method="POST">
 	<div class="form-group">
-	  <label for="email">Email:</label>
+	  <label for="usr">Utente:</label>
 	  <input type="text" class="form-control" id="utente" placeholder="Utente" name="utente">
 	</div>
 	<div class="form-group">
