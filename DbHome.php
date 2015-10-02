@@ -19,7 +19,7 @@ class DbHome extends SQLite3{
 		else{
 			if($this->userCheck($old)){
 				$psw = md5($new);
-				$this -> exec("UPDATE utenti SET passoword = '$psw' WHERE nome='$this->utente'");
+				$this -> exec("UPDATE utenti SET password = '$psw' WHERE nome='$this->utente'");
 				return true;
 			}
 			return false;
@@ -79,6 +79,11 @@ class DbHome extends SQLite3{
 		/*Tutti i debiti saldati, rimuovo tutte gli scontrini tra debitori e creditori*/
 		$this -> exec("DELETE FROM spese WHERE debitore='$debitore' AND creditore='$utente'");
 		$this -> exec("DELETE FROM spese WHERE debitore='$utente' AND creditore='$debitore'");
+	}
+	
+	function aggiungiSpesaSingola($data, $spesa, $causale, $debitore){
+		$utente = $this->utente;
+		$this -> exec("INSERT INTO spese VALUES ('$data', '$debitore', '$utente', $spesa, '$causale')");
 	}
 
 	function userCheck($password){

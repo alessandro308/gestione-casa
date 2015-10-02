@@ -27,7 +27,7 @@ include("header.php");
 
 <div class="container">
 	<center><img src="http://www.bartrattoriaichnusa.it/polopoly_fs/1.13207862.1375103135!/httpImage/img.jpg" /></center>
-	<h2>Utente: <?php echo $utente; if(isset($_SESSION["stato"])){echo ' - <font color="red">'.$_SESSION["stato"]."</font>"; unset($_SESSION["stato"]);}?> - <a href="logout.php" ">Logout</a></h2>
+	<h2>Utente: <?php echo $utente; if(isset($_SESSION["stato"])){echo ' - <font color="red">'.$_SESSION["stato"]."</font>"; unset($_SESSION["stato"]);}?> - <a href="logout.php">Logout</a></h2>
   <h2>Tabella Riepilogo</h2>
   <p>Il valore mostrato è la differenza tra credito e debito</p>            
   <table class="table table-condensed">
@@ -59,6 +59,19 @@ include("header.php");
   
   <h2>Registra nuova spesa</h2>
   <form role="form-inline" action="aggiungiSpesa.php" method="POST">
+	<div class="form-group">
+		<label for="sel1">Da chi devi ricevere questi soldi?</label>
+		<select class="form-control"  id="sel1" name="utente_pagante">
+			<option>Tutti</option>
+			<?php 
+				$utenti = $db -> getUser();
+				while( $row = $utenti->fetchArray()){
+						echo "<option>".$row["nome"]."</option>";
+				}
+				?>
+			  </tr>
+		 </select>
+	</div>
   	<div class="form-group">
   	  <label for="comment">Causale:</label>
   	  <input type="text" class="form-control" id="causale" placeholder="Inserisci una descrizione di spesa" name="causale">
@@ -69,7 +82,6 @@ include("header.php");
   	</div>
   	<button type="submit" class="btn btn-default">Inserisci Spesa</button>
     </form>
-
 
 	<h2>Salda Debito</h2>
 	<form role="form-inline" action="rimuoviDebito.php" method="POST">
