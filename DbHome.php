@@ -28,7 +28,7 @@ class DbHome extends SQLite3{
 
 	function lista_debiti($creditore){
 		$utente = $this->utente;
-		$result = $this -> query("SELECT * FROM spese WHERE debitore='$utente' AND creditore='$creditore'");
+		$result = $this -> query("SELECT * FROM spese WHERE debitore='$utente' AND creditore='$creditore' ORDER BY data");
 		return $result;
 	}
 
@@ -43,7 +43,7 @@ class DbHome extends SQLite3{
 
 	function lista_crediti($debitore){
 		$utente = $this->utente;
-		$result = $this->query("SELECT * FROM spese WHERE creditore='$utente' AND debitore='$debitore'");
+		$result = $this->query("SELECT * FROM spese WHERE creditore='$utente' AND debitore='$debitore' ORDER BY data");
 		return $result;
 	}
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
   <title>Gestionale Spese Casa</title>
   <meta charset="utf-8">
