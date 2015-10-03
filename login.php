@@ -6,10 +6,12 @@ session_start();
 if(!isset($_COOKIE['gestione-casa'])){
 	if(!isset($_POST['utente']))
 		header("location:index.php");
-	$db = new DbHome($_POST['utente']);
-	if($db -> userCheck($_POST['password'])){
+	$utente = sqlite_escape_string($_POST['utente']);
+	$password =sqlite_escape_string($_POST['password']);
+	$db = new DbHome($utente);
+	if($db -> userCheck($password)){
 		$_SESSION["login-failed"] = false;
-		$cookie_string = $_POST['utente'].'/'.$_POST['password'];
+		$cookie_string = $utente.'/'.$password;
 		setcookie("gestione-casa", $cookie_string);
 	}
 	else{
