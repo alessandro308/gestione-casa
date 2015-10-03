@@ -13,13 +13,14 @@ class DbHome extends SQLite3{
 	}
 	
 	function changePsw($old, $new, $newCheck){
-		if(strcmp($new, $newCheck) == 0){
+		if(strcmp($new, $newCheck)){
 			return false;
 		}
 		else{
-			if($this->userCheck($old)){
+			if($this->userCheck($old) ){
 				$psw = md5($new);
-				$this -> exec("UPDATE utenti SET password = '$psw' WHERE nome='$this->utente'");
+				$utente = $this->utente;
+				$this -> exec("UPDATE utenti SET password = '$psw' WHERE nome='$utente'");
 				return true;
 			}
 			return false;
