@@ -1,7 +1,11 @@
 <?
 include("DbHome.php");
 session_start();
+
+/*Fase di Login*/
 if(!isset($_COOKIE['gestione-casa'])){
+	if(!isset($_POST['utente']))
+		header("location:index.php");
 	$db = new DbHome($_POST['utente']);
 	if($db -> userCheck($_POST['password'])){
 		$_SESSION["login-failed"] = false;
@@ -146,7 +150,7 @@ while($row = $result->fetchArray()){
 		<table class="table table-condensed">
 			<thead>
 			  <tr>
-				<th> Data </th>
+				<th> Data Inserimento </th>
 				<th> Causale </th>
 				<th> Importo </th>
 			  </tr>

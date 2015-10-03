@@ -7,7 +7,7 @@ class DbHome extends SQLite3{
 	function __construct ($utente){
 		$this->utente = $utente;
 		$this -> open("home_db", SQLITE3_OPEN_READWRITE | SQLITE3_OPEN_CREATE);
-		$this -> exec("CREATE TABLE IF NOT EXISTS spese (data DATE, debitore TEXT, creditore TEXT, cash DOUBLE PRECISION, causale TEXT)");
+		$this -> exec("CREATE TABLE IF NOT EXISTS spese (data DATE, debitore TEXT, creditore TEXT, cash REAL, causale TEXT)");
 		$this -> exec("CREATE TABLE IF NOT EXISTS utenti (nome TEXT, password TEXT, email TEXT)");
 		//$this -> create_user();
 	}

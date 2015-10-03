@@ -1,5 +1,6 @@
-<? 
+<?
 session_start();
+session_destroy();
 if(!isset($_COOKIE['gestione-casa'])){?>
 <!DOCTYPE html>
 <html lang="en">

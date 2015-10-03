@@ -1,13 +1,14 @@
 <? include("DbHome.php");
 
-$db = new DbHome("Leo");
-
-function create_user($db){
+function create_user(){
+	$db = new DbHome("utente");
 	$psw = md5("password");
-	$db -> exec("INSERT INTO utenti VALUES ('Leo', '$psw')");
-	$db -> exec("INSERT INTO utenti VALUES ('AleS', '$psw')");
-	$db -> exec("INSERT INTO utenti VALUES ('AleP', '$psw')");
-	$db -> exec("INSERT INTO utenti VALUES ('Sim', '$psw')");
+	$db -> exec("INSERT INTO utenti VALUES ('Leo', '$psw', 'ND')");
+	$db -> exec("INSERT INTO utenti VALUES ('AleS', '$psw', 'ND')");
+	$db -> exec("INSERT INTO utenti VALUES ('AleP', '$psw', 'ND')");
+	$db -> exec("INSERT INTO utenti VALUES ('Sim', '$psw', 'ND')");
 }
 
-create_user($db);
+create_user();
+echo "Utenti Creati";
+?>
