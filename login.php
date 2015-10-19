@@ -107,7 +107,29 @@ include("header.php");
 					  </tr>
 				  </select>
 			  </div>
-				 <button type="submit" class="btn btn-default">Salda Debito</button>
+				 <button type="button" class="btn btn-default" data-toggle="modal" data-target="#SaldaDebito">Salda Debito</button>
+				 
+			<!-- Modal Salva Debito-->
+			<div id="SaldaDebito" class="modal fade" role="dialog">
+			  <div class="modal-dialog">
+			
+				<!-- Modal content-->
+				<div class="modal-content">
+				  <div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Conferma Salda Debito</h4>
+				  </div>
+				  <div class="modal-body">
+					<center><img src="img.png" /></center>
+					<button type="submit" class="btn btn-success">Conferma</button>
+				  </div>
+				  <div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				  </div>
+				</div>
+			
+			  </div>
+			</div>
 			</form>
 		</div>
 		<div class="col-sm-4">	
@@ -175,6 +197,8 @@ while($row = $result->fetchArray()){
 
   </div>
 </div>
+
+
 <?php }
 ?>
 
