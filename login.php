@@ -179,13 +179,23 @@ while($row = $result->fetchArray()){
 			</thead>
 			<tbody>
 			  <?php 
+				echo "<tr><td><b>DA AVERE</b></td></tr>";
 			  while( $debito = $debiti->fetchArray() ){
-				echo "<tr>";
+					echo "<tr>";
 			  	echo "<td>".$debito["data"]."</td>";
 			  	echo "<td>".$debito["causale"]."</td>";
 			  	echo "<td>".$debito["cash"]."</td>";
 			  	echo "</tr>";
 			  }
+
+				echo "<tr><td><b>DA DARE</b></td></tr>";
+				while( $credito = $crediti -> fetchArray() ){
+					echo "<tr>";
+			  	echo "<td>".$credito["data"]."</td>";
+			  	echo "<td>".$credito["causale"]."</td>";
+			  	echo "<td>".$credito["cash"]."</td>";
+			  	echo "</tr>";
+				}
 			  ?>
 			</tbody>
 		  </table>
